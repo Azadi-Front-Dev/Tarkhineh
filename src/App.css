@@ -1,7 +1,13 @@
 @import "tailwindcss";
-
+@font-face {
+  font-family: Vazir;
+  src: url(/Fonts/Vazir.woff2);
+}
+body{
+    font-family: "Vazir";
+}
 @theme {
-    
+  --font-family: "Vazir";
   /* Main colors  */
   --color-tint-1: #e5f2e9;
   --color-tint-2: #cae4d3;
@@ -30,7 +36,7 @@
   --color-success: #00966d;
   --color-success-light: #00ba88;
   --color-warning: #00ba88;
-  --color-warning-light: #F4B740;
-  --color-warning-extra-light: #FFF8E1;
+  --color-warning-light: #f4b740;
+  --color-warning-extra-light: #fff8e1;
   /* ----------  */
 }
