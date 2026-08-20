@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import ImageLogo from "../Components/ImageLogo";
 
 const Login = () => {
   const {
@@ -20,9 +21,7 @@ const Login = () => {
 
   return (
     <div className="flex-col-center w-full h-screen  gap-20 p-8">
-      <div className="w-full max-w-40">
-        <img src="./Icons/Logo.png" alt="logo" className="w-full h-full" />
-      </div>
+      <ImageLogo />
       <form
         onSubmit={handleSubmit(sendform)}
         className="w-full max-w-75 flex-col-center gap-8"
