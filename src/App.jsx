@@ -5,10 +5,11 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 const routes = [
   { path: "/", element: <Home/> },
-  { path: "/", element: <></> },
+  { path: "/login", element: <Login/> },
   { path: "/", element: <></> },
 ];
 function App() {
