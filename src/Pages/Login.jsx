@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import ImageLogo from "../Components/ImageLogo";
 import { loginSchema } from "../Validators/LoginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,6 +21,9 @@ const Login = () => {
 
   const sendform = (data) => {
     console.log(data);
+    setTimeout(() => {
+      navigate("/otp");
+    }, 3000);
   };
 
   return (
