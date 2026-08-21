@@ -1,18 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import ImageLogo from "../Components/ImageLogo";
+import { loginSchema } from "../Validators/LoginSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitSuccessful, errors },
+    formState: { isSubmitSuccessful, errors,isValid },
   } = useForm({
     defaultValues: {
       mobilenumber: "",
-      acceptrules: "",
+      acceptrules: false,
     },
-    // resolver: zodresolver()
+    resolver: zodResolver(loginSchema),
   });
 
   const sendform = (data) => {
@@ -35,6 +37,11 @@ const Login = () => {
             className="w-full border-gray-4 border-2 px-5 py-2 rounded-4"
             {...register("mobilenumber")}
           />
+          {errors.mobilenumber && (
+            <span className="text-error text-sm">
+              {errors.mobilenumber.message}
+            </span>
+          )}
           {/* <span className="text-error">وارد کردن شماره همراه الزامی است!</span> */}
         </div>
         <div className="w-full flex flex-col items-start justify-center gap-2">
@@ -52,11 +59,18 @@ const Login = () => {
               <p>را می‌ پذیرم</p>
             </div>
           </div>
+          {errors.acceptrules && (
+            <span className="text-error text-sm">
+              {errors.acceptrules.message}
+            </span>
+          )}
           {/* <span className="text-error"> پذیرفتن قوانین الزامی است !</span> */}
         </div>
         <button
           type="submit"
-          className="w-full text-white bg-gray-4 px-5 py-2 rounded-4"
+          className={`w-full px-5 py-2 rounded-4 text-white transition-colors ${
+            isValid ? "bg-primary" : "bg-gray-4"
+          }`}
         >
           ارسال کد
         </button>
